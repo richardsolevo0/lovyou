@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lovyou Watch Party</title>
+
+  <style>
+    :root {
+      color: #f4f6fb;
+      background: #101115;
+      font-family: Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    #topBar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      background: #181a20;
+      border-bottom: 1px solid #30333d;
+    }
+
+    #roomLink {
+      color: #9aa1af;
+      overflow-wrap: anywhere;
+    }
+
+    #video {
+      display: block;
+      width: 100%;
+      max-height: calc(100vh - 290px);
+      background: #050609;
+    }
+
+    #chat {
+      height: 200px;
+      overflow-y: auto;
+      border-top: 1px solid #30333d;
+      padding: 10px;
+      background: #181a20;
+    }
+
+    #form {
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid #30333d;
+      padding: 10px;
+      background: #101115;
+    }
+
+    #input {
+      flex: 1;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid #30333d;
+      border-radius: 8px;
+      outline: none;
+      background: #111319;
+      color: white;
+    }
+
+    button {
+      min-height: 42px;
+      padding: 0 16px;
+      border: none;
+      border-radius: 8px;
+      background: #f04f5f;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="file"] {
+      max-width: 240px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="topBar">
+    <div id="roomLink"></div>
+    <div>
+      <input type="file" id="fileInput" accept="video/*">
+      <button type="button" onclick="uploadVideo()">Uploader</button>
+    </div>
+  </div>
+
+  <video id="video" controls></video>
+
+  <div id="chat"></div>
+
+  <form id="form">
+    <input id="input" placeholder="Ecris un message..." autocomplete="off">
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+  <script src="chat.js"></script>
+  <script src="sync.js"></script>
+  <script src="upload.js"></script>
+</body>
+</html>

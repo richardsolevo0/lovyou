@@ -1,0 +1,377 @@
+:root {
+  --bg: #071a2f;
+  --bg-soft: #0b2744;
+  --panel: #0e3154;
+  --panel-strong: #123f6b;
+  --panel-soft: #0a223c;
+  --line: rgba(125, 211, 252, 0.2);
+  --text: #f4fbff;
+  --muted: #a9cce4;
+  --sky: #7dd3fc;
+  --sky-strong: #38bdf8;
+  --deep: #04111f;
+  --danger: #ff8fa3;
+  --ok: #9cffd0;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  min-width: 320px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  min-height: 42px;
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  border-radius: 8px;
+  padding: 0 14px;
+  color: #031525;
+  background: var(--sky);
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--sky-strong);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.ghost-button {
+  color: var(--text);
+  background: rgba(125, 211, 252, 0.08);
+}
+
+.ghost-button:hover:not(:disabled) {
+  border-color: var(--sky);
+  background: rgba(125, 211, 252, 0.16);
+}
+
+.ghost-button.compact {
+  min-height: 34px;
+  padding-inline: 12px;
+}
+
+input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  color: var(--text);
+  background: var(--deep);
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--sky);
+}
+
+*:focus,
+*:focus-visible {
+  outline: none;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.eyebrow {
+  margin: 0 0 3px;
+  color: var(--sky);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.auth-shell {
+  display: grid;
+  width: 100%;
+  height: 100dvh;
+  place-items: center;
+  padding: 16px;
+  background: var(--bg);
+}
+
+.auth-card {
+  display: grid;
+  gap: 16px;
+  width: min(420px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.auth-card label {
+  display: grid;
+  gap: 7px;
+}
+
+.auth-card label span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.error-text {
+  color: var(--danger);
+  font-size: 14px;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100svh;
+  max-height: 100svh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.watch {
+  display: grid;
+  grid-template-rows: auto auto;
+  min-height: 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-soft);
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 9px 10px;
+  background: var(--panel);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  min-width: 0;
+}
+
+.identity,
+.role {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  max-width: 120px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0 9px;
+  color: var(--muted);
+  background: rgba(4, 17, 31, 0.64);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.identity {
+  color: var(--text);
+}
+
+.role.host {
+  border-color: rgba(156, 255, 208, 0.44);
+  color: var(--ok);
+}
+
+.role.viewer {
+  border-color: rgba(125, 211, 252, 0.44);
+  color: var(--sky);
+}
+
+.topbar button {
+  min-width: 0;
+  min-height: 30px;
+  padding-inline: 9px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-frame {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: min(calc(100vw * 9 / 16), 360px);
+  max-height: none;
+  place-items: center;
+  overflow: hidden;
+  background: #000;
+}
+
+video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.empty-player {
+  display: grid;
+  gap: 7px;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.empty-player strong {
+  color: var(--text);
+  font-size: 18px;
+}
+
+.chat-panel {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+.messages {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 10px 10px 12px;
+}
+
+.message {
+  display: grid;
+  gap: 5px;
+  max-width: 88%;
+  border: 1px solid rgba(125, 211, 252, 0.16);
+  border-radius: 8px;
+  padding: 9px 10px;
+  background: var(--panel-strong);
+  overflow-wrap: anywhere;
+}
+
+.message span {
+  color: var(--sky);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.message p {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.chat-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  min-height: 66px;
+  padding: 10px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.chat-form button {
+  min-width: 88px;
+}
+
+@media (max-width: 420px) {
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-actions {
+    justify-content: stretch;
+  }
+
+  .identity,
+  .role,
+  .topbar-actions button {
+    flex: 1 1 0;
+    justify-content: center;
+    max-width: none;
+  }
+
+  .topbar-actions button {
+    padding-inline: 6px;
+  }
+}
+
+@media (min-width: 900px) {
+  .app-shell {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    border-inline: 1px solid var(--line);
+  }
+
+  .player-frame {
+    height: min(calc(100vw * 9 / 16), 420px);
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
